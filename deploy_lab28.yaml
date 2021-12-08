@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: rasta2klab27
   labels:
-    app: rasta2klab27
+    app: webnginx
 spec:
   replicas: 4
   selector:
     matchLabels:
-      app: rasta2knginxwebpod
+      app: nginxwebpod
   template:
     metadata:
       labels:
-        app: rasta2knginxwebpod
+        app: nginxwebpod
     spec:
       containers:
       - name: nginx
@@ -25,7 +25,7 @@ metadata:
     name: rasta2klab27 
 spec: 
    selector: 
-     app: rasta2knginxwebpod 
+     app: nginxwebpod 
    type: NodePort
    ports: 
         - protocol: TCP 
