@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rasta2klab27
+  labels:
+    app: webnginx
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: nginxwebpod
+  template:
+    metadata:
+      labels:
+        app: nginxwebpod
+    spec:
+      containers:
+      - name: nginx
+        image: jazius1/test2krepo:1.0.0
+        imagePullPolicy: Always 
+---
+apiVersion: v1 
+kind: Service 
+metadata: 
+    name: rasta2klab27 
+spec: 
+   selector: 
+     app: nginxwebpod 
+   type: NodePort
+   ports: 
+        - protocol: TCP 
+          port: 80 
+          targetPort: 80 
+
